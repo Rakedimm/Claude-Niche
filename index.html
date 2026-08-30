@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yerel Görünürlük Ölçümü — Yiğit Korkmaz</title>
+<style>
+  :root {
+    --bg:#0f1115; --surface:#161920; --line:#262b36; --line-soft:#1e222b;
+    --ink:#e6e8ec; --ink-2:#c3cad6; --ink-3:#98a2b3; --ink-4:#7c8798;
+    --accent:#ff8fa3; --muted-bar:#6b7688;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; padding:56px 24px 80px; background:var(--bg); color:var(--ink);
+         font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+         line-height:1.6; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:760px; margin:0 auto; }
+  .eyebrow { font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+             color:var(--ink-4); margin-bottom:14px; }
+  h1 { font-size:34px; line-height:1.25; margin:0 0 16px; letter-spacing:-.025em; }
+  .lede { font-size:17px; color:var(--ink-2); margin:0 0 14px; }
+  .lede.small { font-size:15px; color:var(--ink-3); }
+  h2 { font-size:18px; margin:52px 0 8px; letter-spacing:-.01em; }
+  h2 + .sub { font-size:14px; color:var(--ink-3); margin:0 0 22px; }
+  .kpi { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+         gap:12px; margin:0 0 22px; }
+  .tile { background:var(--surface); border:1px solid var(--line);
+          border-radius:10px; padding:16px 18px; }
+  .tv { font-size:28px; font-weight:700; letter-spacing:-.02em;
+        font-variant-numeric:tabular-nums; }
+  .tv.accent { color:var(--accent); }
+  .tl { font-size:12px; color:var(--ink-4); margin-top:2px; }
+  figure { margin:0; }
+  .bars { display:grid; gap:18px; margin:0 0 18px; }
+  .row { display:grid; grid-template-columns:1fr; gap:7px; }
+  .rowhead { display:flex; justify-content:space-between; align-items:baseline;
+             gap:12px; font-size:14px; }
+  .rowhead .k { color:var(--ink-2); }
+  .rowhead .v { color:var(--ink-3); font-variant-numeric:tabular-nums; font-size:13px; }
+  .row.hit .rowhead .k { color:var(--ink); font-weight:600; }
+  .row.hit .rowhead .v { color:var(--accent); font-weight:600; }
+  .track { height:12px; background:var(--line-soft); border-radius:6px; overflow:hidden; }
+  .fill { height:100%; background:var(--muted-bar); border-radius:0 4px 4px 0; min-width:3px; }
+  .row.hit .fill { background:var(--accent); }
+  figcaption { font-size:13px; color:var(--ink-4); margin-top:6px;
+               padding-top:14px; border-top:1px solid var(--line-soft); }
+  table { width:100%; border-collapse:collapse; font-size:14px; margin-top:22px; }
+  th { text-align:left; font-size:12px; text-transform:uppercase; letter-spacing:.06em;
+       color:var(--ink-4); font-weight:600; padding:8px 10px;
+       border-bottom:1px solid var(--line); }
+  td { padding:9px 10px; border-bottom:1px solid var(--line-soft);
+       color:var(--ink-2); font-variant-numeric:tabular-nums; }
+  td:first-child { color:var(--ink); }
+  tr.hit td { color:var(--accent); }
+  ol.method { counter-reset:s; list-style:none; padding:0; margin:0; }
+  ol.method li { counter-increment:s; position:relative; padding-left:38px;
+                 margin-bottom:16px; color:var(--ink-2); font-size:15px; }
+  ol.method li::before { content:counter(s); position:absolute; left:0; top:1px;
+    width:24px; height:24px; border-radius:50%; background:var(--surface);
+    border:1px solid var(--line); color:var(--ink-4); font-size:12px;
+    display:flex; align-items:center; justify-content:center; font-weight:600; }
+  ol.method b { color:var(--ink); font-weight:600; }
+  .panel { background:var(--surface); border:1px solid var(--line);
+           border-radius:10px; padding:22px 24px; }
+  .panel p { margin:0 0 12px; color:var(--ink-2); font-size:15px; }
+  .panel p:last-child { margin-bottom:0; }
+  a { color:#8ab4ff; text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  .foot { margin-top:56px; padding-top:22px; border-top:1px solid var(--line);
+          font-size:13px; color:var(--ink-4); }
+  @media (max-width:560px) {
+    body { padding:36px 18px 60px; }
+    h1 { font-size:27px; }
+    table { font-size:13px; }
+    th, td { padding:7px 6px; }
+  }
+</style></head><body><div class="wrap">
+
+  <div class="eyebrow">Yerel Görünürlük Ölçümü</div>
+  <h1>Hastalar sizi arıyor.<br>Sorun, sizi bulup bulamadıkları.</h1>
+  <p class="lede">Bir kliniğin Google haritasındaki görünürlüğü tek bir sıra sayısı
+     değildir — arayan kişinin nerede durduğuna ve hangi kelimeyi yazdığına göre
+     değişir. Ben bunu ölçen bir araç geliştirdim: klinik çevresine bir koordinat
+     ızgarası kuruyor, her noktadan ayrı arama yapıyor ve kliniğin o noktada
+     gerçekten kaçıncı sırada çıktığını kaydediyor.</p>
+  <p class="lede small">Ölçüm ücretsiz. Aşağıda yöntemin tamamı ve şimdiye kadar
+     çıkan sonuçlar var.</p>
+
+  <h2>Şimdiye kadarki bulgu</h2>
+  <p class="sub">İstanbul'da 13 klinik · toplam 1300 ölçüm</p>
+
+  <div class="kpi">
+    <div class="tile"><div class="tv">%34</div>
+      <div class="tl">medyan görünürlük</div></div>
+    <div class="tile"><div class="tv">%84</div>
+      <div class="tl">en görünür klinik</div></div>
+    <div class="tile"><div class="tv accent">%0</div>
+      <div class="tl">en görünmez klinik</div></div>
+  </div>
+  <p class="lede" style="margin-bottom:34px;">Ölçtüğüm klinikler arasında
+     <b>yorum sayısı ile haritada görünürlük arasında anlamlı bir ilişki çıkmadı.</b>
+     13 klinikten biri 100 ölçümün hiçbirinde görünmüyor — üstelik
+     yüzlerce yorumu ve 4.8 puanı var. Bir başkası aynı yorum bandında olmasına
+     rağmen aramaların çoğunda ilk sıralarda. Yani puanınız ve yorumlarınız
+     iyi hekim olduğunuzu söyler; <b>bulunabildiğinizi söylemez.</b></p>
+
+  <figure>
+    <div class="bars">
+      <div class="row">
+        <div class="rowhead"><span class="k">"diş kliniği"</span>
+          <span class="v">%52 ortalama görünürlük</span></div>
+        <div class="track"><div class="fill" style="width:52.0%"></div></div>
+      </div>
+      <div class="row">
+        <div class="rowhead"><span class="k">"diş hekimi"</span>
+          <span class="v">%33</span></div>
+        <div class="track"><div class="fill" style="width:33.2%"></div></div>
+      </div>
+      <div class="row">
+        <div class="rowhead"><span class="k">"dişçi"</span>
+          <span class="v">%33</span></div>
+        <div class="track"><div class="fill" style="width:32.6%"></div></div>
+      </div>
+      <div class="row hit">
+        <div class="rowhead"><span class="k">"ağız ve diş sağlığı polikliniği"</span>
+          <span class="v">%30</span></div>
+        <div class="track"><div class="fill" style="width:30.5%"></div></div>
+      </div>
+    </div>
+    <figcaption>Ölçülen kliniklerin en zayıf olduğu arama
+      <b style="color:var(--accent)">"ağız ve diş sağlığı polikliniği"</b> —
+      ortalama %30 görünürlük.
+      13 klinikten 7 tanesi bu aramada
+      25 noktanın hiçbirinde listede değil.</figcaption>
+  </figure>
+
+  <table>
+    <tr><th>Arama kelimesi</th><th>Ortalama</th><th>Güçlü olan klinik</th><th>Hiç görünmeyen</th></tr><tr><td>"diş kliniği"</td><td>%52</td><td>6</td><td>2</td></tr><tr><td>"diş hekimi"</td><td>%33</td><td>4</td><td>5</td></tr><tr><td>"dişçi"</td><td>%33</td><td>4</td><td>6</td></tr><tr class="hit"><td>"ağız ve diş sağlığı polikliniği"</td><td>%30</td><td>4</td><td>7</td></tr>
+  </table>
+  <p class="lede small" style="margin-top:14px;">
+     Örneklem büyüdükçe tablo otomatik olarak güncelleniyor.</p>
+
+  <h2>Yöntem</h2>
+  <p class="sub">Tahmin yok; her sayı tek tek ölçülüyor.</p>
+  <ol class="method">
+    <li>Kliniğin etrafına <b>600 metre aralıklı 5×5'lik bir koordinat
+        ızgarası</b> kuruluyor — yaklaşık 2,4 km × 2,4 km'lik bir alan.</li>
+    <li>Her noktadan, <b>o konumda duran bir hastanın göreceği sonuçlar</b>
+        Google Places API üzerinden ayrı ayrı sorgulanıyor.</li>
+    <li>Bu, hastaların gerçekten kullandığı <b>4 farklı arama kelimesi</b> için
+        tekrarlanıyor: klinik toplam 100 ölçümle
+        değerlendiriliyor.</li>
+    <li>Sonuç, her kelime için bir <b>ısı haritası</b> olarak çiziliyor:
+        nerede ilk 3'tesiniz, nerede listede bile değilsiniz.</li>
+  </ol>
+
+  <h2>Kim hazırlıyor</h2>
+  <div class="panel">
+    <p>Ben Yiğit Korkmaz. Bu ölçüm aracını kendim yazdım ve İstanbul'daki
+       klinikleri tarıyorum.</p>
+    <p>Uzun bir müşteri listem yok — bu işi yeni kuruyorum ve bunu saklamıyorum.
+       Elimde olan şey ölçümün kendisi: yöntemi yukarıda açıkça yazdım,
+       sonuçları kimse için abartmıyorum ve bir kliniğe "şu kadar para
+       kaybediyorsunuz" gibi uydurma rakamlar sunmuyorum. O rakamı dışarıdan
+       kimse bilemez.</p>
+    <p>Ölçümü ücretsiz gönderiyorum çünkü verinin kendisi zaten konuşuyor.
+       Sonrasında profil düzenlemelerini birlikte yapmak isterseniz onu ayrıca
+       konuşuruz; ölçümü almak için hiçbir yükümlülüğünüz yok.</p>
+    <p style="margin-top:18px;"><a href="mailto:yigitkorkmaz9874@gmail.com">yigitkorkmaz9874@gmail.com</a></p>
+  </div>
+
+  <div class="foot">
+    Kliniğiniz için hazırlanmış bir rapor bağlantınız varsa doğrudan onu açın.
+    Raporlar yalnızca ilgili klinikle paylaşılır ve arama motorlarına kapalıdır.
+  </div>
+
+</div></body></html>

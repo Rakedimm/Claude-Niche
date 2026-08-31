@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Görünürlük Raporu — Dentavie Diş Kliniği</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin:0; padding:40px 24px; background:#0f1115; color:#e6e8ec;
+         font-family: -apple-system, "Segoe UI", Roboto, sans-serif; line-height:1.5; }
+  .wrap { max-width: 880px; margin: 0 auto; }
+  .brand { font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+            color:#7c8798; margin-bottom:8px; }
+  h1 { font-size:30px; margin:0 0 6px; letter-spacing:-.02em; }
+  .sub { color:#98a2b3; margin:0 0 28px; font-size:14px; }
+  .headline { background:#1a1d24; border:1px solid #2a2f3a; border-left:4px solid #ff6b81;
+               border-radius:10px; padding:22px 24px; margin-bottom:28px; }
+  .headline .big { font-size:42px; font-weight:700; color:#ff8fa3; letter-spacing:-.03em; }
+  .headline p { margin:6px 0 0; color:#c3cad6; }
+  .stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+            gap:12px; margin-bottom:32px; }
+  .stat { background:#161920; border:1px solid #262b36; border-radius:10px; padding:16px; }
+  .stat .v { font-size:24px; font-weight:650; }
+  .stat .v.good { color:#86efac; }
+  .stat .v.bad { color:#ff8fa3; }
+  .stat .l { font-size:12px; color:#8b95a7; margin-top:2px; }
+  .headline .hsub { font-size:12px; color:#8b95a7; margin-top:10px; }
+  .lead { color:#c3cad6; font-size:14px; margin:0 0 14px; }
+  .lead.small { font-size:12px; color:#7c8798; margin-top:8px; }
+  h2 { font-size:17px; margin:34px 0 14px; padding-bottom:8px;
+        border-bottom:1px solid #262b36; }
+  .qgrid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; }
+  .qcard { background:#161920; border:1px solid #262b36; border-radius:10px; padding:16px; }
+  .qhead { display:flex; justify-content:space-between; align-items:center; gap:8px; }
+  .qhead h3 { margin:0; font-size:15px; font-weight:600; }
+  .cov { font-size:12px; padding:3px 9px; border-radius:20px; white-space:nowrap; }
+  .cov.bad { background:#3f1d24; color:#ff8fa3; }
+  .cov.ok { background:#14532d; color:#86efac; }
+  table.grid { border-collapse:separate; border-spacing:3px; margin:14px 0 8px; width:100%; }
+  table.grid td { width:20%; aspect-ratio:1; text-align:center; vertical-align:middle;
+                   border-radius:6px; font-size:13px; font-weight:600; }
+  .qmeta { font-size:12px; color:#8b95a7; margin:0; }
+  table.comp { width:100%; border-collapse:collapse; font-size:14px; }
+  table.comp th { text-align:left; font-size:12px; text-transform:uppercase;
+                   letter-spacing:.06em; color:#8b95a7; padding:8px 10px;
+                   border-bottom:1px solid #262b36; }
+  table.comp td { padding:10px; border-bottom:1px solid #1e222b; }
+  .note { font-size:12px; color:#7c8798; background:#131620; border:1px solid #232833;
+           border-radius:8px; padding:14px 16px; margin-top:24px; }
+  .legend { display:flex; gap:14px; flex-wrap:wrap; font-size:12px;
+             color:#8b95a7; margin-bottom:14px; }
+  .legend span b { display:inline-block; width:10px; height:10px; border-radius:3px;
+                    margin-right:5px; vertical-align:middle; }
+  .den { color:#6b7688; font-weight:400; font-size:12px; }
+  h2.okh { border-bottom-color:#1e4030; }
+  h2.badh { border-bottom-color:#4a2029; }
+  table.h2h td.me { color:#e6e8ec; font-weight:600;
+                     background:#171c26; }
+  table.h2h td.me.warn { color:#ff8fa3; }
+  table.h2h th:nth-child(2) { color:#c3cad6; }
+  table.h2h tr.sum td { border-top:2px solid #2a2f3a; font-weight:600; }
+  .verdict { background:#1a1d24; border-left:3px solid #ff6b81;
+              border-radius:0 8px 8px 0; padding:14px 16px; margin-top:14px; }
+  @media print {
+    body { background:#fff; color:#111; padding:0; }
+    .headline, .stat, .qcard, .note, .calc, .verdict, .sender .offer
+      { background:#fff !important; border-color:#ccc !important; }
+    h1, .headline .big, .coval.on { color:#111 !important; }
+    .lead, .sub, .qmeta, .note, .sender p { color:#333 !important; }
+    table.grid td { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .qgrid { grid-template-columns:repeat(2,1fr); }
+  }
+  ul.diag { margin:0 0 6px; padding-left:20px; color:#c3cad6; font-size:14px; }
+  ul.diag li { margin-bottom:10px; }
+  .sender { margin-top:28px; padding-top:20px; border-top:1px solid #262b36; }
+  .sender p { margin:0 0 10px; font-size:14px; color:#c3cad6; }
+  .sender .offer { background:#12251c; border:1px solid #1e4030;
+                    border-left:3px solid #4ade80; border-radius:8px;
+                    padding:14px 16px; color:#d6f5e3; }
+  .sender .small { font-size:13px; color:#98a2b3; }
+  .sender .sig { font-size:13px; color:#7c8798; margin-top:14px;
+                  padding-top:12px; border-top:1px solid #1e222b; }
+  .calc { background:#161920; border:1px solid #262b36; border-radius:10px;
+           padding:20px; display:grid; grid-template-columns:1fr auto;
+           gap:24px; align-items:center; }
+  .calcrow { display:grid; gap:14px; }
+  .calcrow label { display:block; }
+  .calcrow label span { display:block; font-size:13px; color:#98a2b3;
+                         margin-bottom:6px; }
+  .calcrow input { width:100%; max-width:240px; background:#0f1115;
+                    border:1px solid #333a47; border-radius:8px;
+                    padding:10px 12px; color:#e6e8ec; font-size:16px;
+                    font-family:inherit; }
+  .calcrow input:focus { outline:none; border-color:#5b93ff;
+                          box-shadow:0 0 0 3px rgba(91,147,255,.15); }
+  .calcout { text-align:right; min-width:200px; padding-left:24px;
+              border-left:1px solid #262b36; }
+  .cotop { font-size:12px; text-transform:uppercase; letter-spacing:.08em;
+            color:#7c8798; margin-bottom:6px; }
+  .coval { font-size:30px; font-weight:700; color:#4a5262;
+            letter-spacing:-.02em; font-variant-numeric:tabular-nums; }
+  .coval.on { color:#ff8fa3; }
+  .conote { font-size:12px; color:#7c8798; margin-top:6px; }
+  @media (max-width:640px) {
+    .calc { grid-template-columns:1fr; }
+    .calcout { text-align:left; padding-left:0; border-left:none;
+                border-top:1px solid #262b36; padding-top:16px; }
+  }
+</style></head><body><div class="wrap">
+
+  <div class="brand">Yerel Görünürlük Analizi · 31.08.2026</div>
+  <h1>Dentavie Diş Kliniği</h1>
+  <p class="sub">Ömer Avni, Meclis-i Mebusan Cd. No:71 Kat:1, 34400 Beyoğlu/İstanbul · Google puanı 4.9
+     (340 yorum)</p>
+
+  <div class="headline">
+    <div class="big">1/4</div>
+    <p>Hastaların kullandığı 4 arama kelimesinden <b>1 tanesinde güçlüsünüz, 3 tanesinde değilsiniz.</b> "diş kliniği" aramasında 8 noktada ilk 3'tesiniz — bunu telefonunuzdan doğrulayabilirsiniz. Buna karşılık <b>"diş hekimi"</b> aramasında 25 noktanın hiçbirinde çıkmıyorsunuz.</p>
+    <p class="hsub">Ölçüm alanı: kliniğinizin çevresinde
+       <b>2.4 km × 2.4 km</b>.</p>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="v good">%96</div><div class="l">"diş kliniği"</div></div><div class="stat"><div class="v bad">%0</div><div class="l">"diş hekimi"</div></div><div class="stat"><div class="v bad">%36</div><div class="l">"dişçi"</div></div><div class="stat"><div class="v bad">%0</div><div class="l">"ağız ve diş sağlığı polikliniği"</div></div>
+  </div>
+
+  <div class="legend">
+    <span><b style="background:#14532d"></b>ilk 3</span>
+    <span><b style="background:#713f12"></b>4–10. sıra</span>
+    <span><b style="background:#7c2d12"></b>11–20. sıra</span>
+    <span><b style="background:#3f1d24"></b>listede yok</span>
+  </div>
+
+  
+  <h2 class="okh">Güçlü olduğunuz arama · yöntemin doğrulaması</h2>
+  <p class="lead">Bu kelimeyi telefonunuzdan aratıp kendinizi görebilirsiniz.
+     Ölçümün doğru çalıştığının kanıtı bu — aşağıdaki kötü haber de aynı
+     yöntemle üretildi.</p>
+  <div class="qgrid">
+        <div class="qcard">
+          <div class="qhead">
+            <h3>"diş kliniği"</h3>
+            <span class="cov ok">
+              96.0% görünürlük
+            </span>
+          </div>
+          <table class="grid"><tr><td style="background:#713f12;color:#fde047;">7</td><td style="background:#713f12;color:#fde047;">6</td><td style="background:#14532d;color:#86efac;">2</td><td style="background:#14532d;color:#86efac;">3</td><td style="background:#713f12;color:#fde047;">7</td></tr><tr><td style="background:#713f12;color:#fde047;">7</td><td style="background:#713f12;color:#fde047;">4</td><td style="background:#14532d;color:#86efac;">2</td><td style="background:#14532d;color:#86efac;">1</td><td style="background:#713f12;color:#fde047;">4</td></tr><tr><td style="background:#7c2d12;color:#fdba74;">13</td><td style="background:#713f12;color:#fde047;">5</td><td style="background:#14532d;color:#86efac;">2</td><td style="background:#14532d;color:#86efac;">1</td><td style="background:#14532d;color:#86efac;">3</td></tr><tr><td style="background:#7c2d12;color:#fdba74;">12</td><td style="background:#713f12;color:#fde047;">9</td><td style="background:#14532d;color:#86efac;">2</td><td style="background:#713f12;color:#fde047;">4</td><td style="background:#713f12;color:#fde047;">4</td></tr><tr><td style="background:#7c2d12;color:#fdba74;">19</td><td style="background:#7c2d12;color:#fdba74;">20</td><td style="background:#7c2d12;color:#fdba74;">18</td><td style="background:#7c2d12;color:#fdba74;">20</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td></tr></table>
+          <p class="qmeta">
+            24/25 noktada listede ·
+            ilk 3'te olduğu nokta: <b>8</b> ·
+            ortalama sıra: <b>7.3</b>
+          </p>
+        </div></div>
+
+  <h2 class="badh">Görünmediğiniz aramalar</h2>
+  <div class="qgrid">
+        <div class="qcard">
+          <div class="qhead">
+            <h3>"diş hekimi"</h3>
+            <span class="cov bad">
+              0.0% görünürlük
+            </span>
+          </div>
+          <table class="grid"><tr><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td></tr><tr><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td></tr><tr><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td></tr><tr><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td></tr><tr><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td></tr></table>
+          <p class="qmeta">
+            0/25 noktada listede ·
+            ilk 3'te olduğu nokta: <b>0</b> ·
+            ortalama sıra: <b>—</b>
+          </p>
+        </div>
+        <div class="qcard">
+          <div class="qhead">
+            <h3>"dişçi"</h3>
+            <span class="cov bad">
+              36.0% görünürlük
+            </span>
+          </div>
+          <table class="grid"><tr><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#713f12;color:#fde047;">7</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td></tr><tr><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#713f12;color:#fde047;">5</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td></tr><tr><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#713f12;color:#fde047;">5</td><td style="background:#14532d;color:#86efac;">2</td><td style="background:#14532d;color:#86efac;">1</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td></tr><tr><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#713f12;color:#fde047;">9</td><td style="background:#14532d;color:#86efac;">2</td><td style="background:#14532d;color:#86efac;">3</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td></tr><tr><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#7c2d12;color:#fdba74;">19</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td></tr></table>
+          <p class="qmeta">
+            9/25 noktada listede ·
+            ilk 3'te olduğu nokta: <b>4</b> ·
+            ortalama sıra: <b>5.9</b>
+          </p>
+        </div>
+        <div class="qcard">
+          <div class="qhead">
+            <h3>"ağız ve diş sağlığı polikliniği"</h3>
+            <span class="cov bad">
+              0.0% görünürlük
+            </span>
+          </div>
+          <table class="grid"><tr><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td></tr><tr><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td></tr><tr><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td></tr><tr><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td></tr><tr><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td><td style="background:#3f1d24;color:#ff8fa3;">yok</td></tr></table>
+          <p class="qmeta">
+            0/25 noktada listede ·
+            ilk 3'te olduğu nokta: <b>0</b> ·
+            ortalama sıra: <b>—</b>
+          </p>
+        </div></div>
+
+  
+  <h2>Aynı bölgedeki bir klinikle kelime kelime</h2>
+  <p class="lead">Her satır, ölçülen noktaların kaçında ilk 3'te
+     çıkıldığını gösterir. Toplam almak yanıltıcı olurdu — asıl mesele
+     hangi kelimede var olduğunuz.</p>
+  <table class="comp h2h">
+    <tr><th>Arama kelimesi</th><th>Siz</th><th>DentSmile Ağız ve Diş Sağlığı Polikliniği</th></tr>
+    <tr><td>"diş kliniği"</td><td class="me ">8</td><td>5</td></tr><tr><td>"diş hekimi"</td><td class="me warn">yok</td><td>3</td></tr><tr><td>"dişçi"</td><td class="me ">4</td><td>3</td></tr><tr><td>"ağız ve diş sağlığı polikliniği"</td><td class="me warn">yok</td><td>7</td></tr>
+  </table>
+  <p class="lead verdict">Dikkat edin: <b>DentSmile Ağız ve Diş Sağlığı Polikliniği sizin güçlü olduğunuz aramada hiç yok.</b> Yani sizi geçmiş değil — sadece sizin hiç bulunmadığınız kelimelerde tek başına duruyor: &quot;diş hekimi&quot;, &quot;ağız ve diş sağlığı polikliniği&quot;. Puanlarınız da neredeyse aynı (4.9 / 4.9), yani mesele hekimlik değil, hangi aramada listeye girdiğiniz.</p>
+
+  <h2>Sizin yerinize ilk 3'te çıkan klinikler</h2>
+  <p class="lead">Aşağıdaki klinikler, sizin yerinize baktığımız aramalarda
+     ilk 3'te yer aldı.</p>
+  <table class="comp">
+    <tr><th>Klinik</th><th>Puan</th><th>Yorum</th><th>İlk 3'te olduğu ölçüm</th></tr>
+    <tr><td>Diş Hekimi Dr. Dt. Hazar Yaldız</td><td>4.9</td><td>281</td><td><b>38</b> <span class="den">/ 100</span></td></tr><tr><td>Diş Hekimi Yahya Terlemez</td><td>5</td><td>605</td><td><b>25</b> <span class="den">/ 100</span></td></tr><tr><td>DentSmile Ağız ve Diş Sağlığı Polikliniği</td><td>4.9</td><td>417</td><td><b>18</b> <span class="den">/ 100</span></td></tr><tr><td>Citydent Istanbul Dental Clinic</td><td>4.9</td><td>2347</td><td><b>16</b> <span class="den">/ 100</span></td></tr><tr><td>Ata Pera Dental Center</td><td>4.9</td><td>558</td><td><b>12</b> <span class="den">/ 100</span></td></tr><tr><td>Cadde Kurtuluş Ağız ve Diş Sağlığı Polikliniği</td><td>4.8</td><td>96</td><td><b>12</b> <span class="den">/ 100</span></td></tr>
+  </table>
+
+  <h2>Bunun sebebi ne olabilir?</h2>
+  <p class="lead">Bu bir otorite sorunu değil — 4.9 puan ve 340 yorumla
+     bölgenin en iyi değerlendirilen hekimlerindensiniz. Sorun <b>sınıflandırma</b>:
+     Google sizi hangi aramalarda gösterip hangilerinde göstermeyeceğine,
+     işletme kaydınızdaki kategori ve isim bilgisine bakarak karar veriyor.</p>
+  <ul class="diag"><li><b>İşletme adınız hangi aramada çıkacağınızı belirliyor.</b> Adınızda "diş kliniği" ifadesi geçiyor ve o aramada %96 görünürlüktesiniz. Buna karşılık "diş hekimi", "dişçi", "ağız ve diş sağlığı polikliniği" aramalarında adınızda karşılığı olmadığı için neredeyse hiç çıkmıyorsunuz. Ölçtüğüm 13 klinikte bu fark belirgin: adında ilgili ifade geçenler ortalama %83, geçmeyenler %24 görünürlükte.</li><li><b>Çözüm adınızı değiştirmek değil.</b> Google, işletme adının tabeladaki gerçek ad olmasını şart koşuyor; ada anahtar kelime eklemek profilin askıya alınmasına ve yıllarca biriken yorumların kaybedilmesine yol açabiliyor. Bunu önermiyorum.</li><li><b>Çalışan kaldıraç kategori tarafında.</b> Ölçtüğüm 13 kliniğin hiçbirinin adında "dişçi" ifadesi geçmiyor, buna rağmen ortalama %33 görünürlükleri var — yani o eşleşme tamamen kategori ve hizmet alanlarından geliyor. İkincil kategori eklemek, adınıza dokunmadan çalışan tek yol.</li></ul>
+  <p class="lead small">Bunlar ölçüm verisinden çıkarılmış olası sebeplerdir;
+     kesinleştirmek için işletme kaydınıza bakmak gerekir.</p>
+
+  <h2>Bunun karşılığı ne kadar?</h2>
+  <p class="lead">Size bir kayıp rakamı söylemeyeceğim — kimse başkasının cirosunu
+     dışarıdan bilemez ve o rakamı uyduran herkes size bir şey satmaya çalışıyordur.
+     Bu yüzden aşağısı boş. İki rakamı siz biliyorsunuz, siz yazın.</p>
+
+  <div class="calc">
+    <div class="calcrow">
+      <label>
+        <span>Görünmediğiniz aramalardan ayda kaç hasta kaçırıyor olabilirsiniz?</span>
+        <input id="hasta" type="number" min="0" step="1" placeholder="örn. 2">
+      </label>
+      <label>
+        <span>Bir hasta size ortalama ne kazandırıyor? (₺)</span>
+        <input id="deger" type="number" min="0" step="500" placeholder="örn. 6000">
+      </label>
+    </div>
+    <div class="calcout">
+      <div class="cotop">Yıllık karşılığı</div>
+      <div class="coval" id="sonuc">—</div>
+      <div class="conote" id="aylik">İki alanı doldurunca hesaplanır.</div>
+    </div>
+  </div>
+
+  <p class="lead small">Bu rakam sizin girdiğiniz iki sayının çarpımıdır;
+     benim bir tahminim değildir.</p>
+
+  <script>
+    (function() {
+      var h = document.getElementById('hasta');
+      var d = document.getElementById('deger');
+      var out = document.getElementById('sonuc');
+      var sub = document.getElementById('aylik');
+      function fmt(n) {
+        return n.toLocaleString('tr-TR');
+      }
+      function hesapla() {
+        var hv = parseFloat(h.value);
+        var dv = parseFloat(d.value);
+        if (!hv || !dv || hv < 0 || dv < 0) {
+          out.textContent = '—';
+          sub.textContent = 'İki alanı doldurunca hesaplanır.';
+          out.classList.remove('on');
+          return;
+        }
+        var aylik = hv * dv;
+        out.textContent = fmt(aylik * 12) + ' ₺';
+        sub.textContent = 'Ayda ' + fmt(aylik) + ' ₺';
+        out.classList.add('on');
+      }
+      h.addEventListener('input', hesapla);
+      d.addEventListener('input', hesapla);
+    })();
+  </script>
+
+  <div class="note">
+    <b>Yöntem:</b> Kliniğinizin etrafında bir koordinat ızgarası kuruldu ve her
+    noktadan, o konumda arama yapan bir hastanın göreceği sonuçlar Google Places
+    API üzerinden ölçüldü. Harita sıralaması konuma göre değiştiği için tek bir
+    "sıra" yoktur — tablo, bulunduğunuz noktadan uzaklaştıkça ne olduğunu gösterir.
+    Rakip listesine yalnızca puanı ve yorumu olan gerçek işletmeler dahil edilmiştir.
+    Bu ölçüm 31.08.2026 tarihinde alınmıştır. Harita sonuçları zamanla değişir;
+    bu yüzden tek bir ölçüm fotoğraf, tekrarlanan ölçüm ise filmdir —
+    asıl bilgi, sayıların aylar içinde hangi yöne gittiğidir.
+  </div>
+
+  <div class="sender">
+    <p class="offer"><b>Bir teklifim var.</b> İşletme profilinizdeki
+       <b>ikincil kategori, hizmet alanları ve açıklama</b> bölümlerini sizin için
+       ücretsiz düzenleyebilirim. Yaklaşık yarım saatlik bir iş,
+       sizden hiçbir şey istemiyorum.</p>
+    <p class="small">Birincil kategorinize <b>dokunmayacağım</b> — o değişiklik Google'da
+       yeniden doğrulama süreci tetikleyebiliyor ve 340 yorumlu
+       bir profili riske atmaya değmez. Önce risksiz kalemleri düzeltip
+       <b>iki hafta boyunca aynı ölçümü tekrarlarım</b>,
+       önceki ve sonraki haritaları yan yana gönderirim. Sayılar oynadıysa devamını
+       konuşuruz; oynamadıysa kimse kimseye bir şey borçlu değil.</p>
+    <p class="sig">Yiğit Korkmaz · yigitkorkmaz9874@gmail.com</p>
+  </div>
+
+</div></body></html>
